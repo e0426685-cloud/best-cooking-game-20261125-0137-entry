@@ -1,0 +1,50 @@
+/* Page chrome for Sizzle & Serve. The game itself is drawn on the canvas;
+   this only centres the 1280x720 stage, keeps its aspect ratio, and styles
+   the help line underneath. No external fonts or assets. */
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #241708;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.stage-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#game {
+  display: block;
+  width: min(100%, calc((100vh - 64px) * 1280 / 720));
+  aspect-ratio: 1280 / 720;
+  background: #f2d8a7;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  touch-action: none;
+  cursor: pointer;
+}
+
+/* Read aloud, never shown: the status line screen readers announce. */
+#status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.hint {
+  margin: 0;
+  color: #d8c49a;
+  font-size: 14px;
+  text-align: center;
+}
